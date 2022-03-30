@@ -13,6 +13,7 @@
   --secondary-light-bg: #f5f4fa;
   /* Темная тема фона */
   --primary-dark-bg: #2f303a;
+  /* Переходы для анимации */
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -492,33 +493,12 @@ body {
   margin-bottom: -30px;
 }
 .portfolio-item {
-  /* position: relative; */
-
   width: calc((100% - 90px) / 3);
   margin-right: 30px;
   margin-bottom: 30px;
 }
 .portfolio-img {
-  /* position: relative; */
-
   max-width: 100%;
-}
-
-.overlay-portfolio {
-  position: absolute;
-  top: 0;
-
-  /* max-width: 370px; */
-  padding: 63px 24px;
-
-  background: rgba(33, 150, 243, 0.9);
-}
-.overlay-portfolio-txt {
-  font-size: 18px;
-  line-height: 1.55;
-  letter-spacing: 0.03em;
-
-  color: rgba(255, 255, 255, 1);
 }
 
 .portfolio-content {
@@ -543,6 +523,34 @@ body {
 .portfolio-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.overlay-portfolio {
+  position: relative;
+  max-width: 370px;
+}
+
+.overlay-portfolio-txt {
+  position: absolute;
+  display: block;
+  top: 0;
+  padding: 63px 24px;
+
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+
+  color: rgba(255, 255, 255, 1);
+  background: rgba(33, 150, 243, 0.9);
+
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.portfolio-link:hover .overlay-portfolio-txt {
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: 250ms;
+  transition-timing-function: var(--timing-function);
 }
 
 .portfolio-subtitle {
@@ -638,4 +646,14 @@ body {
 .footer-socials-link:hover,
 .footer-socials-link:focus {
   background-color: var(--accent-color);
+}
+
+/* Modal window */
+.backdrop {
+  position: fixed;
+
+  width: 100vh;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.2);
 }
