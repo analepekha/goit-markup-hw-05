@@ -654,6 +654,35 @@ body {
 
   width: 100vh;
   height: 100vh;
+  top: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
 
   background: rgba(0, 0, 0, 0.2);
+}
+
+.modal-wrapper {
+  position: absolute;
+  top: 221px;
+  left: 50%;
+
+  width: 528px;
+  height: 581px;
+
+  transform: translate(-50%);
+
+  background: var(--primary-light-bg);
+}
+
+.modal-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border-color: rgba(0, 0, 0, 0.1);
+  background: var(--primary-light-bg);
 }
