@@ -14,7 +14,7 @@
   /* Темная тема фона */
   --primary-dark-bg: #2f303a;
   /* Переходы для анимации */
-  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: 2000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Utilities */
@@ -132,9 +132,7 @@ body {
 
   color: var(--primary-text-color);
 
-  transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: color var(--transition);
 }
 .nav-link:hover,
 .nav-link:focus {
@@ -162,9 +160,7 @@ body {
   letter-spacing: 0.02em;
   color: var(--secondary-text-color);
 
-  transition-property: color;
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: color var(--transition);
 }
 .nav-icon {
   fill: currentColor;
@@ -224,9 +220,7 @@ body {
   color: var(--primary-text-darktheme);
   background-color: var(--accent-color);
 
-  transition-property: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: background-color var(--transition);
 }
 .hero-btn:hover {
   background-color: #188ce8;
@@ -382,9 +376,7 @@ body {
   background-color: var(--primary-light-bg);
   border-radius: 50%;
 
-  transition-property: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: background-color var(--transition);
 }
 
 .socials-icons {
@@ -393,9 +385,7 @@ body {
   width: 20px;
   height: 20px;
 
-  transition-property: fill;
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: fill var(--transition);
 }
 
 .socials-link:hover .socials-icons,
@@ -426,9 +416,7 @@ body {
   border: 1px solid #afb1b8;
   border-radius: 4px;
 
-  transition-property: border;
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: border var(--transition);
 }
 .clients-icons {
   display: inline-block;
@@ -436,9 +424,7 @@ body {
   height: 60px;
   fill: rgba(175, 177, 184, 1);
 
-  transition-property: fill;
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: fill var(--transition);
 }
 .clients-link:hover .clients-icons,
 .clients-link:focus .clients-icons {
@@ -475,9 +461,8 @@ body {
   color: var(--primary-text-color);
   background-color: var(--secondary-light-bg);
 
-  transition-property: color, background-color, box-shadow;
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: color var(--transition), background-color var(--transition),
+    box-shadow var(--transition);
 }
 .filter-btn:hover,
 .filter-btn:focus {
@@ -515,9 +500,7 @@ body {
 
   color: var(--primary-text-color);
 
-  transition-property: box-shadow;
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: box-shadow var(--transition);
 }
 .portfolio-link:hover,
 .portfolio-link:focus {
@@ -549,8 +532,7 @@ body {
 .portfolio-link:hover .overlay-portfolio-txt {
   opacity: 1;
   transform: translateY(0);
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: var(--transition);
 }
 
 .portfolio-subtitle {
@@ -632,9 +614,7 @@ body {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
 
-  transition-property: background-color;
-  transition-duration: 250ms;
-  transition-timing-function: var(--timing-function);
+  transition: background-color var(--transition);
 }
 
 .footer-socials-icons {
@@ -658,21 +638,35 @@ body {
   left: 50%;
 
   transform: translateX(-50%);
+  visibility: visible;
+  opacity: 1;
+  pointer-events: initial;
 
   background: rgba(0, 0, 0, 0.2);
+
+  transition: opacity var(--transition), visibility var(--transition);
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .modal-wrapper {
   position: absolute;
-  top: 221px;
+  top: 50%;
   left: 50%;
 
   width: 528px;
   height: 581px;
 
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
 
   background: var(--primary-light-bg);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 }
 
 .modal-btn {
@@ -685,4 +679,17 @@ body {
   border-radius: 50%;
   border-color: rgba(0, 0, 0, 0.1);
   background: var(--primary-light-bg);
+
+  cursor: pointer;
+}
+.close-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  display: inline-block;
+  width: 11px;
+  height: 11px;
 }
