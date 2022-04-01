@@ -14,7 +14,7 @@
   /* Темная тема фона */
   --primary-dark-bg: #2f303a;
   /* Переходы для анимации */
-  --transition: 2000ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Utilities */
